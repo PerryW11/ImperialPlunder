@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
@@ -26,6 +27,13 @@ public:
 private:
 	float InitialYaw;
 	float CurrentYaw;
-	UPROPERTY(EditAnywhere);
+
+	UPROPERTY(EditAnywhere)
 	float TargetYaw;
+
+	UPROPERTY(EditAnywhere)
+	ATriggerVolume *PressurePlate;
+
+	UPROPERTY(EditAnywhere)
+	AActor *ActorThatOpens;
 };
