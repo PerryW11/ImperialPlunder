@@ -4,17 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Engine/TriggerVolume.h"
-#include "OpenDoor.generated.h"
+#include "GameFramework/PlayerController.h"
+#include "Grabber.generated.h"
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
-class IMPERIALPLUNDER_API UOpenDoor : public UActorComponent
+class IMPERIALPLUNDER_API UGrabber : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this component's properties
-	UOpenDoor();
+	UGrabber();
 
 protected:
 	// Called when the game starts
@@ -23,26 +23,8 @@ protected:
 public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
-	void OpenDoor(float DeltaTime);
-	void CloseDoor(float DeltaTime);
 
 private:
-	float InitialYaw;
-	float CurrentYaw;
-
-	UPROPERTY(EditAnywhere)
-	float TargetYaw;
-
-	UPROPERTY(EditAnywhere)
-	float TargetCloseYaw;
-
-	UPROPERTY(EditAnywhere)
-	ATriggerVolume *PressurePlate;
-
-	UPROPERTY(EditAnywhere)
-	float DoorCloseDelay = 1.f;
-
-	float LastDoorOpenTime;
-
-	AActor *ActorThatOpens;
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
 };
