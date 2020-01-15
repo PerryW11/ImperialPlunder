@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "GameFramework/PlayerController.h"
+#include "DrawDebugHelpers.h"
 #include "Grabber.generated.h"
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
@@ -27,4 +28,5 @@ public:
 private:
 	FVector PlayerViewPointLocation;
 	FRotator PlayerViewPointRotation;
+	float Reach = 100.f;
 };
